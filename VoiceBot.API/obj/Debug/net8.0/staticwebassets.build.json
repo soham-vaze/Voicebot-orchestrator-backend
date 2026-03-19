@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "laGAZMeSKRkcJ2HB78ukcVbh00zdwdC2LCFllQctHkE=",
+  "Source": "VoiceBot.API",
+  "BasePath": "_content/VoiceBot.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

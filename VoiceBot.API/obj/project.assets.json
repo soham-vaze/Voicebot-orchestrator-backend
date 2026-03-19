@@ -107,6 +107,42 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "VoiceBot.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "VoiceBot.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VoiceBot.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VoiceBot.Application.dll": {}
+        }
+      },
+      "VoiceBot.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/VoiceBot.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VoiceBot.Domain.dll": {}
+        }
+      },
+      "VoiceBot.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "VoiceBot.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VoiceBot.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VoiceBot.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -473,12 +509,30 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "VoiceBot.Application/1.0.0": {
+      "type": "project",
+      "path": "../VoiceBot.Application/VoiceBot.Application.csproj",
+      "msbuildProject": "../VoiceBot.Application/VoiceBot.Application.csproj"
+    },
+    "VoiceBot.Domain/1.0.0": {
+      "type": "project",
+      "path": "../VoiceBot.Domain/VoiceBot.Domain.csproj",
+      "msbuildProject": "../VoiceBot.Domain/VoiceBot.Domain.csproj"
+    },
+    "VoiceBot.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj",
+      "msbuildProject": "../VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.25",
-      "Swashbuckle.AspNetCore >= 6.6.2"
+      "Swashbuckle.AspNetCore >= 6.6.2",
+      "VoiceBot.Application >= 1.0.0",
+      "VoiceBot.Domain >= 1.0.0",
+      "VoiceBot.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -505,7 +559,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj": {
+              "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj"
+            },
+            "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj": {
+              "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj"
+            },
+            "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj": {
+              "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

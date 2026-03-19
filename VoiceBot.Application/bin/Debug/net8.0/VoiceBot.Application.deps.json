@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "VoiceBot.Application/1.0.0": {
+        "dependencies": {
+          "VoiceBot.Domain": "1.0.0"
+        },
+        "runtime": {
+          "VoiceBot.Application.dll": {}
+        }
+      },
+      "VoiceBot.Domain/1.0.0": {
+        "runtime": {
+          "VoiceBot.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VoiceBot.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VoiceBot.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

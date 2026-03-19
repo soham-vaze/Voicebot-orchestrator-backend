@@ -1,0 +1,15 @@
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/bin/Debug/net8.0/VoiceBot.Infrastructure.deps.json
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/bin/Debug/net8.0/VoiceBot.Infrastructure.dll
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/bin/Debug/net8.0/VoiceBot.Infrastructure.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/bin/Debug/net8.0/VoiceBot.Domain.dll
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/bin/Debug/net8.0/VoiceBot.Domain.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.csproj.AssemblyReference.cache
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.AssemblyInfoInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.AssemblyInfo.cs
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.csproj.CoreCompileInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.5F9ED145.Up2Date
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.dll
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/refint/VoiceBot.Infrastructure.dll
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/VoiceBot.Infrastructure.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/Debug/net8.0/ref/VoiceBot.Infrastructure.dll

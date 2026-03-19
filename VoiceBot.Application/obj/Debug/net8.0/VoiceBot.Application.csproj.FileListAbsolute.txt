@@ -1,0 +1,15 @@
+/home/soham/VoiceBotBackend/VoiceBot.Application/bin/Debug/net8.0/VoiceBot.Application.deps.json
+/home/soham/VoiceBotBackend/VoiceBot.Application/bin/Debug/net8.0/VoiceBot.Application.dll
+/home/soham/VoiceBotBackend/VoiceBot.Application/bin/Debug/net8.0/VoiceBot.Application.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Application/bin/Debug/net8.0/VoiceBot.Domain.dll
+/home/soham/VoiceBotBackend/VoiceBot.Application/bin/Debug/net8.0/VoiceBot.Domain.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.csproj.AssemblyReference.cache
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.AssemblyInfoInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.AssemblyInfo.cs
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.csproj.CoreCompileInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.630011F6.Up2Date
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.dll
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/refint/VoiceBot.Application.dll
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/VoiceBot.Application.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Application/obj/Debug/net8.0/ref/VoiceBot.Application.dll

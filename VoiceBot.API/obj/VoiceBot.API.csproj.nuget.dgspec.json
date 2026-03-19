@@ -25,7 +25,17 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj": {
+                "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj"
+              },
+              "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj": {
+                "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj"
+              },
+              "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj": {
+                "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -67,6 +77,188 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj",
+        "projectName": "VoiceBot.Application",
+        "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj",
+        "packagesPath": "/home/soham/.nuget/packages/",
+        "outputPath": "/home/soham/VoiceBotBackend/VoiceBot.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/soham/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj": {
+                "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj",
+        "projectName": "VoiceBot.Domain",
+        "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj",
+        "packagesPath": "/home/soham/.nuget/packages/",
+        "outputPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/soham/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj",
+        "projectName": "VoiceBot.Infrastructure",
+        "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/VoiceBot.Infrastructure.csproj",
+        "packagesPath": "/home/soham/.nuget/packages/",
+        "outputPath": "/home/soham/VoiceBotBackend/VoiceBot.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/soham/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj": {
+                "projectPath": "/home/soham/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

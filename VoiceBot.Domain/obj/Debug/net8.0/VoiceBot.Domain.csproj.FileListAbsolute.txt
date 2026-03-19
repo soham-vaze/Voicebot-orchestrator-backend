@@ -1,0 +1,11 @@
+/home/soham/VoiceBotBackend/VoiceBot.Domain/bin/Debug/net8.0/VoiceBot.Domain.deps.json
+/home/soham/VoiceBotBackend/VoiceBot.Domain/bin/Debug/net8.0/VoiceBot.Domain.dll
+/home/soham/VoiceBotBackend/VoiceBot.Domain/bin/Debug/net8.0/VoiceBot.Domain.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.AssemblyInfoInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.AssemblyInfo.cs
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.csproj.CoreCompileInputs.cache
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.dll
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/refint/VoiceBot.Domain.dll
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/VoiceBot.Domain.pdb
+/home/soham/VoiceBotBackend/VoiceBot.Domain/obj/Debug/net8.0/ref/VoiceBot.Domain.dll
