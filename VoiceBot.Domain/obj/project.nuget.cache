@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9ib2WhMzFkU=",
+  "dgSpecHash": "+MPsKx1Mzvo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ShlokaKulkarni\\Technossus\\VoiceBotPOC\\Voicebot-orchestrator-backend\\VoiceBot.Domain\\VoiceBot.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.23\\microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.23\\microsoft.windowsdesktop.app.ref.8.0.23.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.23\\microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/soham/Voicebot/VoiceBotBackend/VoiceBot.Domain/VoiceBot.Domain.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

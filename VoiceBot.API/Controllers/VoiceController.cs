@@ -10,10 +10,14 @@ namespace VoiceBot.API.Controllers;
 public class VoiceController : ControllerBase
 {
     private readonly IVoiceOrchestrator _orchestrator;
+    private readonly ILogger<VoiceController> _logger;
 
-    public VoiceController(IVoiceOrchestrator orchestrator)
+    public VoiceController(
+        IVoiceOrchestrator orchestrator,
+        ILogger<VoiceController> logger)
     {
         _orchestrator = orchestrator;
+        _logger = logger;
     }
 
     /// <summary>
@@ -23,8 +27,19 @@ public class VoiceController : ControllerBase
     [HttpPost("process")]
     public async Task<IActionResult> ProcessAudio(IFormFile file)
     {
+        // ------------------------------------------------------------------
+        // 📨 Request Validation
+        // ------------------------------------------------------------------
         if (file == null || file.Length == 0)
+        {
+            _logger.LogWarning("⚠️ No audio file provided in request");
             return BadRequest(new { error = "No audio file provided." });
+        }
+
+        _logger.LogInformation("🎤 Received audio file: {FileName}, Size: {Size} bytes",
+            file.FileName, file.Length);
+
+        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         using var memoryStream = new MemoryStream();
         await file.CopyToAsync(memoryStream);
@@ -32,31 +47,57 @@ public class VoiceController : ControllerBase
         var request = new AudioRequest
         {
             AudioData = memoryStream.ToArray(),
-            FileName  = file.FileName,
+            FileName = file.FileName,
         };
 f
         try
         {
-            var (text, audio) = await _orchestrator.ProcessAudioAsync(request);
+            _logger.LogInformation("⚙️ Sending audio to orchestrator");
+
+            var (query, text, audio) = await _orchestrator.ProcessAudioAsync(request);
+
+            stopwatch.Stop();
+
+            _logger.LogInformation(
+                "✅ Processing completed in {ElapsedMs} ms | Text length: {TextLength} | Audio bytes: {AudioSize}",
+                stopwatch.ElapsedMilliseconds,
+                text?.Length ?? 0,
+                audio?.Length ?? 0
+            );
 
             return Ok(new
             {
                 text,
-                audioBase64 = Convert.ToBase64String(audio),
+                audioBase64 = Convert.ToBase64String(audio ?? Array.Empty<byte>()),
             });
         }
         catch (PipelineException ex)
         {
-            // Map the domain exception to HTTP 400 with a structured JSON body.
-            // The controller is the ONLY place where domain exceptions are translated
-            // to HTTP status codes — keeping all HTTP concerns out of Application/Domain.
+            stopwatch.Stop();
+
+            _logger.LogWarning(
+                "⚠️ PipelineException at stage {Stage}: {Detail} | Time: {ElapsedMs} ms",
+                ex.Stage,
+                ex.Detail,
+                stopwatch.ElapsedMilliseconds
+            );
+
             return BadRequest(new
             {
-                stage  = ex.Stage,
+                stage = ex.Stage,
                 detail = ex.Detail,
             });
         }
-        // Note: all other unexpected exceptions propagate to the default ASP.NET
-        // exception handler, which logs them and returns a 500.
+        catch (Exception ex)
+        {
+            stopwatch.Stop();
+
+            _logger.LogError(ex,
+                "❌ Unexpected error while processing audio | Time: {ElapsedMs} ms",
+                stopwatch.ElapsedMilliseconds
+            );
+
+            throw; // let ASP.NET handle 500
+        }
     }
 }

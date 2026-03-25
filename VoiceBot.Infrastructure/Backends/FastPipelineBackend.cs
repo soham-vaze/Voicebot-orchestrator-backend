@@ -7,6 +7,8 @@ using VoiceBot.Domain.Exceptions;
 
 namespace VoiceBot.Infrastructure.Backends;
 
+
+
 /// <summary>
 /// Calls the Python FastAPI pipeline service (STT → LLM → TTS in one round-trip).
 /// All HTTP mechanics are confined here; the Application layer only sees ILlmBackend.
@@ -52,8 +54,8 @@ public sealed class FastPipelineBackend : ILlmBackend
         var fileContent = new ByteArrayContent(audioBytes);
         fileContent.Headers.ContentType =
             new System.Net.Http.Headers.MediaTypeHeaderValue("audio/octet-stream");
-        formContent.Add(fileContent, "file", audioFileName);
-
+        formContent.Add(fileContent, "audio_file", audioFileName);
+        
         HttpResponseMessage response;
         try
         {
@@ -84,11 +86,43 @@ public sealed class FastPipelineBackend : ILlmBackend
                 if (errorDoc.RootElement.TryGetProperty("stage", out var s))
                     stage  = s.GetString() ?? stage;
                 if (errorDoc.RootElement.TryGetProperty("detail", out var d))
-                    detail = d.GetString() ?? detail;
+                {
+                    // Handle both string and array formats
+                    if (d.ValueKind == JsonValueKind.String)
+                    {
+                        detail = d.GetString() ?? detail;
+                    }
+                    else if (d.ValueKind == JsonValueKind.Array)
+                    {
+                        // FastAPI validation errors come as an array - combine them
+                        var errors = new System.Collections.Generic.List<string>();
+                        foreach (var item in d.EnumerateArray())
+                        {
+                            if (item.ValueKind == JsonValueKind.String)
+                            {
+                                errors.Add(item.GetString() ?? "");
+                            }
+                            else if (item.TryGetProperty("msg", out var msg))
+                            {
+                                // FastAPI format: {"loc": [...], "msg": "...", "type": "..."}
+                                errors.Add(msg.GetString() ?? "");
+                            }
+                            else
+                            {
+                                errors.Add(item.ToString());
+                            }
+                        }
+                        detail = string.Join("; ", errors);
+                    }
+                    else
+                    {
+                        detail = d.ToString();
+                    }
+                }
             }
             catch (JsonException) { /* raw text fallback already set above */ }
 
-            _logger.LogError(
+            _logger.LogError(  
                 "FastPipelineBackend: non-success {Status} at stage '{Stage}': {Detail}",
                 (int)response.StatusCode, stage, detail);
 

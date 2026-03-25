@@ -4,5 +4,5 @@ namespace VoiceBot.Application.Services;
 
 public interface IVoiceOrchestrator
 {
-    Task<(string text, byte[] audio)> ProcessAudioAsync(AudioRequest request);
+    Task<(string query, string text, byte[] audio)> ProcessAudioAsync(AudioRequest request);
 }

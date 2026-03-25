@@ -5,18 +5,28 @@ using VoiceBot.Infrastructure.Backends;
 var builder = WebApplication.CreateBuilder(args);
 
 // -----------------------------------------------------------------------
+// ✅ LOGGING CONFIGURATION
+// -----------------------------------------------------------------------
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+var logger = LoggerFactory
+    .Create(logging => logging.AddConsole())
+    .CreateLogger("Program");
+
+logger.LogInformation("🚀 Starting VoiceBot API...");
+
+// -----------------------------------------------------------------------
 // Controllers & API explorer
 // -----------------------------------------------------------------------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+logger.LogInformation("✅ Controllers and Swagger configured");
+
 // -----------------------------------------------------------------------
-// Named HttpClient — "PythonPipeline"
-// Base URL comes from "PythonPipeline:BaseUrl" in appsettings.json.
-// Using a named client (rather than a typed client) means the client
-// can be injected into the backend class that needs it without requiring
-// the class itself to be registered as a typed-client host.
+// HttpClient Configuration
 // -----------------------------------------------------------------------
 builder.Services.AddHttpClient("PythonPipeline", client =>
 {
@@ -24,47 +34,52 @@ builder.Services.AddHttpClient("PythonPipeline", client =>
         ?? throw new InvalidOperationException("Missing config key: PythonPipeline:BaseUrl");
 
     client.BaseAddress = new Uri(baseUrl);
-    client.Timeout     = TimeSpan.FromSeconds(30);
+    client.Timeout = TimeSpan.FromMinutes(5);
+
+    logger.LogInformation("🌐 PythonPipeline HttpClient configured with BaseUrl: {BaseUrl}", baseUrl);
 });
 
 // -----------------------------------------------------------------------
-// Pipeline-mode switch
-// Reads "PipelineMode" from config; defaults to "Fast" if absent.
-// To switch modes: change appsettings.json or set env var PipelineMode=WhatsAppTeam
-// No code change required — the right ILlmBackend is resolved at startup.
+// Pipeline Mode Selection
 // -----------------------------------------------------------------------
 var pipelineMode = builder.Configuration["PipelineMode"] ?? "Fast";
+
+logger.LogInformation("⚙️ Selected Pipeline Mode: {PipelineMode}", pipelineMode);
 
 switch (pipelineMode)
 {
     case "Fast":
-        // FastPipelineBackend requires a pre-configured HttpClient ("PythonPipeline").
-        // We register it as Scoped (not Singleton) so ILogger scope aligns with requests.
         builder.Services.AddScoped<ILlmBackend>(sp =>
         {
             var factory = sp.GetRequiredService<IHttpClientFactory>();
-            var http    = factory.CreateClient("PythonPipeline");
-            var logger  = sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<FastPipelineBackend>>();
+            var http = factory.CreateClient("PythonPipeline");
+            var backendLogger = sp.GetRequiredService<ILogger<FastPipelineBackend>>();
 
-            return new FastPipelineBackend(http, logger);
+            backendLogger.LogInformation("🧠 FastPipelineBackend initialized");
+
+            return new FastPipelineBackend(http, backendLogger);
         });
         break;
 
     case "WhatsAppTeam":
-        // Stub implementation — throws NotImplementedException until their API is integrated.
         builder.Services.AddScoped<ILlmBackend, WhatsAppTeamBackend>();
+        logger.LogWarning("⚠️ Using WhatsAppTeamBackend (may be incomplete)");
         break;
 
     default:
+        logger.LogError("❌ Invalid PipelineMode: {PipelineMode}", pipelineMode);
         throw new InvalidOperationException(
             $"Unknown PipelineMode '{pipelineMode}'. Valid values: \"Fast\", \"WhatsAppTeam\".");
 }
 
-// IVoiceOrchestrator is in the Application layer — always the same regardless of mode.
+// -----------------------------------------------------------------------
+// Orchestrator
+// -----------------------------------------------------------------------
 builder.Services.AddScoped<IVoiceOrchestrator, VoiceOrchestrator>();
+logger.LogInformation("🎯 VoiceOrchestrator registered");
 
 // -----------------------------------------------------------------------
-// CORS — allow the Vite frontend dev server
+// CORS
 // -----------------------------------------------------------------------
 builder.Services.AddCors(options =>
 {
@@ -76,11 +91,18 @@ builder.Services.AddCors(options =>
     });
 });
 
+logger.LogInformation("🌍 CORS policy configured");
+
 // -----------------------------------------------------------------------
-// Middleware pipeline
+// Build App
 // -----------------------------------------------------------------------
 var app = builder.Build();
 
+logger.LogInformation("🏗️ Application built successfully");
+
+// -----------------------------------------------------------------------
+// Middleware pipeline
+// -----------------------------------------------------------------------
 app.UseCors("AllowFrontend");
 
 app.UseSwagger();
@@ -90,4 +112,10 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
+logger.LogInformation("🚦 Middleware pipeline configured");
+
+// -----------------------------------------------------------------------
+// Run App
+// -----------------------------------------------------------------------
+logger.LogInformation("🔥 VoiceBot API is running...");
 app.Run();

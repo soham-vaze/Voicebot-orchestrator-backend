@@ -1,14 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "dlgVn+5iLtg=",
+  "dgSpecHash": "3RbHWnJGUtM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ShlokaKulkarni\\Technossus\\VoiceBotPOC\\Voicebot-orchestrator-backend\\VoiceBot.Application\\VoiceBot.Application.csproj",
+  "projectFilePath": "/home/soham/Voicebot/VoiceBotBackend/VoiceBot.Application/VoiceBot.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.23\\microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.23\\microsoft.windowsdesktop.app.ref.8.0.23.nupkg.sha512",
-    "C:\\Users\\ShlokaKulkarni\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.23\\microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
+    "/home/soham/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/soham/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

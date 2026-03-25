@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"YsnAFcipevNcxvs+qZkRC/pd64F52aGHJ5bwfFUB2lQ=","Source":"VoiceBot.API","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "laGAZMeSKRkcJ2HB78ukcVbh00zdwdC2LCFllQctHkE=",
+  "Source": "VoiceBot.API",
+  "BasePath": "_content/VoiceBot.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
