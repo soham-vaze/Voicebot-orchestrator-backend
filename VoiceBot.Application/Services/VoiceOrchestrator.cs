@@ -32,10 +32,12 @@ using Microsoft.Extensions.Logging;
 
         public async Task<(string query, string text, byte[] audio)> ProcessAudioAsync(AudioRequest request)
         {
-            // Generate a session ID for this request.
-            // Future: accept an existing session ID from the caller (e.g., via a header)
-            // so multi-turn conversations are tracked across requests.
-            var sessionId = Guid.NewGuid().ToString();
+            // Use the session ID supplied by the caller (frontend) to maintain conversation
+            // continuity across requests. Fall back to a new Guid only when no ID is provided
+            // (e.g. first request in a new session, or non-browser callers like healthcheck.py).
+            var sessionId = string.IsNullOrWhiteSpace(request.SessionId)
+                ? Guid.NewGuid().ToString()
+                : request.SessionId;
 
             _logger.LogInformation(
                 "VoiceOrchestrator: starting session={Session}, file={File}, bytes={Bytes}",

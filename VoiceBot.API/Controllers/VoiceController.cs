@@ -25,7 +25,7 @@ public class VoiceController : ControllerBase
     /// POST /api/voice/process
     /// </summary>
     [HttpPost("process")]
-    public async Task<IActionResult> ProcessAudio(IFormFile file)
+    public async Task<IActionResult> ProcessAudio(IFormFile file, [FromForm] string? sessionId = null)
     {
         // ------------------------------------------------------------------
         // 📨 Request Validation
@@ -36,8 +36,8 @@ public class VoiceController : ControllerBase
             return BadRequest(new { error = "No audio file provided." });
         }
 
-        _logger.LogInformation("🎤 Received audio file: {FileName}, Size: {Size} bytes",
-            file.FileName, file.Length);
+        _logger.LogInformation("🎤 Received audio file: {FileName}, Size: {Size} bytes, SessionId: {SessionId}",
+            file.FileName, file.Length, sessionId ?? "(new)");
 
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -48,6 +48,7 @@ public class VoiceController : ControllerBase
         {
             AudioData = memoryStream.ToArray(),
             FileName = file.FileName,
+            SessionId = sessionId,   // null ⇒ orchestrator will generate a new session
         };
 f
         try
@@ -67,6 +68,7 @@ f
 
             return Ok(new
             {
+                sessionId,                // echo back so the frontend can reuse it
                 text,
                 audioBase64 = Convert.ToBase64String(audio ?? Array.Empty<byte>()),
             });
