@@ -11,4 +11,5 @@ public class AudioRequest
 {
     public byte[] AudioData { get; set; }
     public string FileName { get; set; }
+    public string SessionID { get; set; }
 }

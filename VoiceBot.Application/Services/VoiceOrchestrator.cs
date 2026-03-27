@@ -35,7 +35,7 @@ using Microsoft.Extensions.Logging;
             // Generate a session ID for this request.
             // Future: accept an existing session ID from the caller (e.g., via a header)
             // so multi-turn conversations are tracked across requests.
-            var sessionId = Guid.NewGuid().ToString();
+            var sessionId = request.SessionID
 
             _logger.LogInformation(
                 "VoiceOrchestrator: starting session={Session}, file={File}, bytes={Bytes}",

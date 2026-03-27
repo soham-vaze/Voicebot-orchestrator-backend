@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoiceBot.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9a252085a2ee8d3a36b18794621d9cf9de4afff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+445bfc6ddd311e786be37ae87639c30959d6ae00")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoiceBot.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoiceBot.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

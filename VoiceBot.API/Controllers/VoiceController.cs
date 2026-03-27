@@ -25,7 +25,7 @@ public class VoiceController : ControllerBase
     /// POST /api/voice/process
     /// </summary>
     [HttpPost("process")]
-    public async Task<IActionResult> ProcessAudio(IFormFile file)
+    public async Task<IActionResult> ProcessAudio([FromForm] IFormFile file, [FromForm] string sessionId)
     {
         // ------------------------------------------------------------------
         // 📨 Request Validation
@@ -34,6 +34,12 @@ public class VoiceController : ControllerBase
         {
             _logger.LogWarning("⚠️ No audio file provided in request");
             return BadRequest(new { error = "No audio file provided." });
+        }
+
+        if (string.IsNullOrEmpty(sessionId))
+        {
+            _logger.LogWarning("⚠️ Request received without a SessionID");
+            // You can choose to return BadRequest or generate one here as a fallback
         }
 
         _logger.LogInformation("🎤 Received audio file: {FileName}, Size: {Size} bytes",
@@ -48,6 +54,7 @@ public class VoiceController : ControllerBase
         {
             AudioData = memoryStream.ToArray(),
             FileName = file.FileName,
+            SessionID =  sessionId
         };
 
         try
